@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'charts/show', as: :chart
   resources :applicants do
     patch :change_stage, on: :member
     resources :emails, only: %i[index new create show]
