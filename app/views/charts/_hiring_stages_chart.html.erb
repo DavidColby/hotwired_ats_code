@@ -1,0 +1,21 @@
+<div
+  data-controller="hiring-stages"
+  data-hiring-stages-labels-value="<%= labels %>"
+  data-hiring-stages-series-value="<%= series %>"
+  id="stage-chart-container"
+>
+  <div class="flex justify-between">
+    <h3 class="text-xl font-bold text-blue-700">Applicants by hiring stage</h3>
+    <form>
+      <%= select_tag "job_id",
+        options_for_select(
+          Job.for_account(current_user.account).order(:title).pluck(:title, :id)
+        ),
+        include_blank: "All jobs",
+        data: {
+          action: "change->hiring-stages#update"
+        } %>
+    </form>
+  </div>
+  <div data-hiring-stages-target="chart"></div>
+</div>

@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @chart_partial do %>
+  <%= render @chart_partial, labels: @labels, series: @series %>
+<% end %>

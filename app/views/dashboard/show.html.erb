@@ -1,5 +1,13 @@
-<h1>Dashboard#show</h1>
-<p>Find me in app/views/dashboard/show.html.erb</p>
-<%= link_to "Career page", careers_account_path(current_user.account) %>
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-
+<div>
+  <h2 class="mt-6 text-3xl font-extrabold text-gray-700">
+    Recruiting Dashboard
+  </h2>
+</div>
+<div class="flex w-full space-x-8 sm:flex-col md:flex-row flex-1">
+  <div class="sm:w-full md:w-1/2">
+    <%= turbo_frame_tag "applicants_chart", src: chart_path(chart_type: "Charts::ApplicantsChart"), loading: "lazy" %>
+  </div>
+  <div class="sm:w-full md:w-1/2">
+    <%= turbo_frame_tag "hiring_stages_chart", src: chart_path(chart_type: "Charts::HiringStagesChart"), loading: "lazy" %>
+  </div>
+</div>
