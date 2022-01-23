@@ -1,0 +1,12 @@
+<div class="flex flex-col pb-2 overflow-auto" data-id="<%= applicant.id %>">
+  <div class="relative flex flex-col items-start p-4 mt-3 bg-gray-100 rounded-lg cursor-move bg-opacity-90 group hover:bg-opacity-100">
+    <h4 class="text-gray-900"><%= link_to applicant.name, applicant, class: "cursor-pointer" %></h4>
+    <p class="text-sm text-gray-700"><%= applicant.job.title %> in <%= applicant.job.location %></p>
+    <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
+      <div class="flex items-center" title="Application Date">
+        <%= inline_svg_tag 'calendar.svg', class: 'h-4 w-4 inline-block' %>
+        <span class="ml-1 leading-none"><%= l(applicant.created_at.to_date, format: :short) %></span>
+      </div>
+    </div>
+  </div>
+</div>

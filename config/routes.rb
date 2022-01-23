@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :applicants do
+    patch :change_stage, on: :member
+  end
   resources :jobs
   devise_for :users,
     path: '',

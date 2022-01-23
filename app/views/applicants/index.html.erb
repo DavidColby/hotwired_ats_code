@@ -1,0 +1,23 @@
+<div class="flex items-baseline justify-between mb-6">
+  <h2 class="mt-6 text-3xl font-extrabold text-gray-700">
+    Applicants
+  </h2>
+  <%= link_to "Add a new applicant", new_applicant_path, class: "btn-primary-outline", data: { action: "mouseup->slideover#open", remote: true } %>
+</div>
+<div class="flex items-baseline justify-between">
+  <div class="flex flex-grow mt-4 space-x-6 overflow-auto" data-controller="drag" data-drag-url-value="/applicants/:id/change_stage" data-drag-attribute-value="applicant[stage]">
+    <% [:application, :interview, :offer, :hired].each do |key| %>
+      <div class="flex flex-col flex-shrink-0 w-72">
+        <div class="flex items-center flex-shrink-0 h-10 px-2">
+          <span class="block text-lg font-semibold"><%= key.to_s.humanize %></span>
+        </div>
+        <div id="applicants-<%= key %>" data-drag-target="list" data-new-value="<%= key.to_s %>" class="h-full">
+          <% @applicants.where(stage: key).each do |applicant| %>
+            <%= render "card", applicant: applicant %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
