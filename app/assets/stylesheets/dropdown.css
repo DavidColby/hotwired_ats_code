@@ -1,0 +1,14 @@
+.dropdown-content {
+  top: calc(100% - 0.25rem);
+  left: 50%;
+  transform: rotateX(-90deg) translateX(-50%);
+  transform-origin: top;
+  opacity: 0.1;
+  transition: 280ms all ease-out;
+  z-index: 20;
+}
+.dropdown-content.open {
+  opacity: 1;
+  transform: rotateX(0) translateX(-50%);
+  visibility: visible;
+}

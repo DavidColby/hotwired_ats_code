@@ -1,0 +1,16 @@
+<div data-controller="dropdown" id="notifications-container" class="relative" data-action="click@window->dropdown#hide">
+  <button class="py-4 px-1 relative border-2 border-transparent text-gray-800 rounded-full" id="notifications-menu" data-action="click->dropdown#toggle" aria-expanded="false">
+    <span class="sr-only">Notifications</span>
+    <%= inline_svg_tag('bell.svg', class: "h-6 w-6") %>
+    <% if user.notifications.unread.exists? %>
+      <div class="absolute inset-0 object-right-top -mr-6">
+        <div id="notification-count" class="inline-flex items-center px-1.5 py-0.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-red-500 text-white">
+          <%= user.notifications.unread.count %>
+        </div>
+      </div>
+    <% end %>
+  </button>
+  <div class="dropdown-content absolute w-96 h-96 overflow-y-scroll bg-gray-100 shadow-lg rounded-md ring-1 ring-black ring-opacity-5" data-dropdown-target="content">
+    <%= turbo_frame_tag "notifications", src: notifications_path, autoscroll: true, data: { autoscroll_block: "start" } %>
+  </div>
+</div>

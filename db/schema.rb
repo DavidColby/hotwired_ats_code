@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_152613) do
+ActiveRecord::Schema.define(version: 2022_01_23_155450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -109,6 +109,16 @@ ActiveRecord::Schema.define(version: 2022_01_23_152613) do
     t.index ["status"], name: "index_jobs_on_status"
   end
 
+  create_table "notifications", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.datetime "read_at", precision: 6
+    t.jsonb "params"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -133,5 +143,6 @@ ActiveRecord::Schema.define(version: 2022_01_23_152613) do
   add_foreign_key "emails", "applicants"
   add_foreign_key "emails", "users"
   add_foreign_key "jobs", "accounts"
+  add_foreign_key "notifications", "users"
   add_foreign_key "users", "accounts"
 end
