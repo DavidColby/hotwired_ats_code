@@ -1,0 +1,12 @@
+@import "trix/dist/trix";
+
+.trix-button--icon-increase-nesting-level,
+.trix-button--icon-decrease-nesting-level,
+.trix-button--icon-strike,
+.trix-button--icon-code,
+.trix-button-group.trix-button-group--file-tools { display:none; }
+
+trix-editor.trix-content {
+  @apply appearance-none w-full max-w-prose bg-white text-gray-700 border-gray-200 rounded-sm text-lg focus:ring-1 focus:ring-blue-300 focus:border-blue-300;
+  min-height: 400px;
+}

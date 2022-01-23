@@ -9,3 +9,6 @@ application.register("alert", AlertController)
 
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
+
+import SlideoverController from "./slideover_controller.js"
+application.register("slideover", SlideoverController)

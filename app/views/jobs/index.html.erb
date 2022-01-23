@@ -1,0 +1,17 @@
+<div class="flex items-baseline justify-between mb-6">
+  <h2 class="mt-6 text-3xl font-extrabold text-gray-700">
+    Jobs
+  </h2>
+  <%= link_to "Post a new job",
+    new_job_path,
+    class: "btn-primary-outline",
+    data: {
+      action: "click->slideover#open",
+      remote: true
+    } %>
+</div>
+<div class="shadow overflow-hidden sm:rounded-md">
+  <div class="divide-y divide-gray-200" id="jobs">
+    <%= render @jobs %>
+  </div>
+</div>
