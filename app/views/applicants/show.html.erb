@@ -1,10 +1,43 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @applicant %>
-
-<div>
-  <%= link_to "Edit this applicant", edit_applicant_path(@applicant) %> |
-  <%= link_to "Back to applicants", applicants_path %>
-
-  <%= button_to "Destroy this applicant", @applicant, method: :delete %>
+<div class="flex items-baseline justify-between mb-6 text-gray-700">
+  <h2 class="mt-6 text-3xl font-extrabold">
+    <%= @applicant.name %>
+  </h2>
+  <%= link_to "Send email",
+    new_applicant_email_path(@applicant),
+    class: "btn-primary-outline",
+    data: {
+      action: "click->slideover#open",
+      remote: true
+    } %>
+</div>
+<div class="shadow p-4 text-gray-700">
+  <div class="flex justify-between mb-6">
+    <div class="space-y-2">
+      <h3 class="text-xl font-bold">Applicant info</h3>
+      <p><%= mail_to @applicant.email %></p>
+      <p><%= phone_to @applicant.phone %></p>
+    </div>
+    <div class="space-y-2">
+      <h3 class="text-xl font-bold">Application details</h3>
+      <p>Applied for <%= @applicant.job.title %></p>
+      <p>Applied on <%= l(@applicant.created_at.to_date, format: :long) %></p>
+    </div>
+    <div class="space-y-2">
+		<!-- Applicant actions go here -->
+    </div>
+  </div>
+  <div class="flex w-full">
+    <div class="emails-container w-1/3 bg-gray-100 border-2 border-gray-200 rounded p-4 mr-2 shadow divide-y divide-gray-500 overflow-y-scroll">
+      <h3 class="text-xl font-bold">Communication history</h3>
+      <%= turbo_stream_from @applicant, :emails %>
+      <%= turbo_frame_tag "emails", src: applicant_emails_path(@applicant), class: "max-height[1000px]" %>
+    </div>
+    <% if @applicant.resume.attached? %>
+      <%= turbo_frame_tag "resume", src: applicant_resume_path(@applicant), loading: "lazy", class: "w-2/3" do %>
+        <div class="w-full bg-gray-100 rounded flex justify-center items-center" style="height: 1000px;">
+          Loading...
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

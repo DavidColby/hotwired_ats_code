@@ -1,0 +1,27 @@
+<div class="px-4">
+  <div class="py-2 border-b border-gray-900 text-lg">
+    <%= @email.body %>
+  </div>
+  <div class="text-sm text-gray-500 py-4">
+    <% if @email.outbound? %>
+      Sent by <%= @email.user.email %> on <%= l(@email.created_at, format: :long) %>
+    <% else %>
+      <div class="flex justify-between items-center">
+        <span>
+          Sent by <%= @email.applicant.name %> on <%= l(@email.created_at, format: :long) %>
+        </span>
+        <span>
+          <%= link_to "Reply",
+            new_applicant_email_reply_path(
+              applicant_id: @email.applicant_id,
+              email_id: @email.id
+            ),
+            class: "btn-primary-outline",
+            data: {
+              remote: true
+            } %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
