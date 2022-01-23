@@ -1,0 +1,15 @@
+<div data-controller="dropdown" class="relative" data-action="click@window->dropdown#hide">
+  <button class="py-4 px-1 relative border-2 border-transparent text-gray-800 rounded-full" id="settings-menu" data-action="click->dropdown#toggle" aria-expanded="false">
+    Settings
+  </button>
+  <div class="dropdown-content absolute w-48 px-2 py-2 bg-gray-100 shadow-lg rounded-md ring-1 ring-black ring-opacity-5" data-dropdown-target="content">
+    <ul class="divide-gray-200 divide-y-2" role="menu" aria-orientation="vertical" aria-labelledby="settings-menu">
+      <li class="p-2">
+        <%= link_to "Career page", careers_account_path(current_user.account), class: "text-blue-700 hover:text-blue-900", target: "_blank" %>
+      </li>
+      <li class="p-2">
+        <%= link_to "Manage Users", users_path, class: "text-blue-700 hover:text-blue-900" %>
+      </li>
+    </ul>
+  </div>
+</div>

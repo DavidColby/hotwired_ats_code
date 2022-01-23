@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_155450) do
+ActiveRecord::Schema.define(version: 2022_01_23_172903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -131,9 +131,15 @@ ActiveRecord::Schema.define(version: 2022_01_23_155450) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email_alias"
+    t.string "invite_token"
+    t.datetime "invited_at", precision: 6
+    t.datetime "accepted_invite_at", precision: 6
+    t.uuid "invited_by_id"
     t.index ["account_id"], name: "index_users_on_account_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["email_alias"], name: "index_users_on_email_alias"
+    t.index ["invite_token"], name: "index_users_on_invite_token"
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -145,4 +151,5 @@ ActiveRecord::Schema.define(version: 2022_01_23_155450) do
   add_foreign_key "jobs", "accounts"
   add_foreign_key "notifications", "users"
   add_foreign_key "users", "accounts"
+  add_foreign_key "users", "users", column: "invited_by_id"
 end

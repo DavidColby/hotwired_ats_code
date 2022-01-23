@@ -1,0 +1,40 @@
+<div class="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-lg">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      Welcome to Hotwired ATS
+    </h2>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-lg">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <%= form_with(model: @user, url: invites_path, method: :post, html: { class: "space-y-6" }) do |form| %>
+        <%= form.hidden_field :token, value: params[:token] %>
+
+        <div class="form-group">
+          <%= form.label :first_name %>
+          <div class="mt-1">
+            <%= form.text_field :first_name, autofocus: true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :last_name %>
+          <div class="mt-1">
+            <%= form.text_field :last_name, autofocus: true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :password %>
+          <div class="mt-1">
+            <%= form.password_field :password, autocomplete: "current-password" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.button 'Accept invite', class: "btn-primary w-full", data: { disable_with: 'Submitting' } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
