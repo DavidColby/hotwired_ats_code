@@ -1,0 +1,4 @@
+#slideover-background {
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.2s ease-in;
+}

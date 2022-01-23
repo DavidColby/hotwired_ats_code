@@ -1,0 +1,31 @@
+<div id="<%= dom_id(job) %>">
+  <div class="flex flex-col md:flex-row items-center px-4 py-4 sm:px-6 justify-between">
+    <div class="flex-1">
+      <%= link_to job.title,
+        edit_job_path(job),
+        class: "text-lg text-blue-600 hover:text-blue-700",
+        data: {
+          action: "click->slideover#open",
+          remote: true
+        } %>
+      <div class="flex space-x-2 text-gray-500 text-sm">
+        <div>
+          <%= job.location %>
+        </div>
+        <div>
+          <%= job.job_type.humanize %>
+        </div>
+      </div>
+    </div>
+    <div class="text-right">
+      <%= button_to "Delete job",
+        job_path(job),
+        method: :delete,
+        class: "btn border border-red-200 hover:bg-red-100 text-sm text-red-700",
+        remote: true,
+        data: {
+          confirm: "Are you sure?"
+        } %>
+    </div>
+  </div>
+</div>

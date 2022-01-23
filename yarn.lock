@@ -72,6 +72,20 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.1.tgz#8f383b672e142d009f89b725d49b0832d99da74a"
   integrity sha512-lbGc1z2RXdiWZJE/8o2GSe2gek82EoKd2YvjRrqV//0J3/JImONUYwZ2XPmS1R9R2oth1XlIG0YidqdeTty0TA==
 
+"@rails/actiontext@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-7.0.1.tgz#e45d491b959092c45d4eacfae212369419685d9b"
+  integrity sha512-O9relaASXsUj8JavDLW16hIBGtiDDIDiQhQY4MKDpk90J9vwzJfswKIABRFd8WK3nF8oKvZY27x2J0pdXt4wWA==
+  dependencies:
+    "@rails/activestorage" ">= 7.0.0-alpha1"
+
+"@rails/activestorage@>= 7.0.0-alpha1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-7.0.1.tgz#207f445b684a210a9673b9f7177d83fa9e199088"
+  integrity sha512-086z2aymPsfJITR8tbXjMr5OipfoFcoWJn5y5krXx3zo9zCEBQjSVR/tS2oHQGCSxIsF0E7a9Ds1cFXrnEdSKQ==
+  dependencies:
+    spark-md5 "^3.0.1"
+
 "@tailwindcss/forms@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.4.0.tgz#a46715e347a32d216a3973eb67473bd29ae3798e"
@@ -764,6 +778,11 @@ source-map-js@^1.0.1:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
+spark-md5@^3.0.1:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
+  integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
+
 stimulus@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-3.0.1.tgz#370e3054eb3b8068904af1888949821255d375d3"
@@ -831,6 +850,11 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+trix@^2.0.0-alpha.0:
+  version "2.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-2.0.0-alpha.0.tgz#dc47e935710d5c1dbcdebe252aed72b9341de247"
+  integrity sha512-JE2iiWE4rimzRv6Um87flkGAv4lsF6tin0XJ7yFFBdnFYjUVwMmLW7Z61kQyNorKU2XmhWMwiEEvqru9EcVjHQ==
 
 util-deprecate@^1.0.2:
   version "1.0.2"

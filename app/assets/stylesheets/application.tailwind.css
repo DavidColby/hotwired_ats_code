@@ -1,4 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "forms.scss";
+@import 'actiontext.css';
+
+@import "animation.css";
+@import "forms.css";
+@import "slideover.css";

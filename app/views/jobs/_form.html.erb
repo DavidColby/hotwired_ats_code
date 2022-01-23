@@ -1,0 +1,48 @@
+<%= form_with(
+  model: job,
+  id: 'job-form',
+  html: { class: "space-y-6" },
+  data: { remote: true }
+) do |form| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+        <% job.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <div class="mt-1">
+      <%= form.text_field :title %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, options_for_select(Job.statuses.map{|key, _value| [key.humanize, key]}, job.status), {}, { class: "mt-1" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :job_type %>
+    <%= form.select :job_type, options_for_select(Job.job_types.map{|key, _value| [key.humanize, key]}, job.job_type), {}, { class: "mt-1" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :location %>
+    <div class="mt-1">
+      <%= form.text_field :location %>
+    </div>
+  </div>
+
+  <%= form.submit 'Submit', class: 'btn-primary float-right' %>
+<% end %>
