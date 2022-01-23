@@ -1,0 +1,2 @@
+module Careers::ApplicantsHelper
+end

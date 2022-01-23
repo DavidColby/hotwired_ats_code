@@ -1,0 +1,26 @@
+<%= content_for :title, "#{@job.title} at #{@account.name}" %>
+  <div class="max-w-prose mx-auto relative">
+    <div class="py-4 text-right">
+      <%= link_to "Back to all jobs", :back, class: "text-lg text-blue-600 hover:text-blue-700" %>
+    </div>
+    <div class="py-4 px-2 sticky top-0 bg-gray-100">
+      <div class="flex justify-between items-baseline">
+        <h1 class="text-3xl font-bold pb-2 flex-1"><%= @job.title %></h1>
+        <%= button_to "Apply",
+          new_careers_job_applicant_path(@job),
+          class: "btn-primary-outline disabled:opacity-75 disabled:hover:cursor-not-allowed",
+          id: 'apply-button',
+          remote: true,
+          method: :get,
+          data: {
+            action: "click->slideover#open"
+          } %>
+      </div>
+      <p class="text-sm text-gray-500">
+        <%= @job.job_type.humanize %> in <%= @job.location %>
+      </p>
+    </div>
+    <div class="px-2 mt-4">
+      <%= @job.description %>
+    </div>
+  </div>

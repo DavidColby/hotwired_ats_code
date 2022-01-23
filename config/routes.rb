@@ -23,6 +23,14 @@ Rails.application.routes.draw do
     }
   get 'dashboard/show'
 
+  namespace :careers do
+    resources :accounts, only: %i[show] do
+      resources :jobs, only: %i[index show], shallow: true do
+        resources :applicants, only: %i[new create]
+      end
+    end
+  end
+
   authenticated :user do
     root to: 'dashboard#show', as: :user_root
   end
