@@ -7,6 +7,7 @@
     "@tailwindcss/forms": "^0.4.0",
     "autoprefixer": "^10.4.2",
     "esbuild": "^0.14.13",
+    "lodash": "^4.17.21",
     "mrujs": "^0.8.0",
     "postcss": "^8.4.5",
     "postcss-import": "^14.0.2",

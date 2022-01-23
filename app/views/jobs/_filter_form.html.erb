@@ -1,0 +1,22 @@
+<%= form_with url: jobs_path, method: :get, class: "flex items-baseline", data: { controller: "form", form_target: "form", turbo_frame: "jobs", turbo_action: "advance" } do |form| %>
+  <div class="form-group mr-2">
+    <%= form.label :sort, class: "sr-only" %>
+    <%= form.select :sort,
+      options_for_select(job_sort_options_for_select, fetch_filter_key("job", current_user.id, 'sort')),
+      {},
+      { data: { action: "change->form#submit" } }
+    %>
+  </div>
+  <div class="form-group mr-2">
+    <%= form.label :status, class: "sr-only" %>
+    <%= form.select :status,
+      options_for_select(status_options_for_select, fetch_filter_key("job", current_user.id, 'status')),
+      { include_blank: 'All Statuses' },
+      { data: { action: "change->form#submit" } }
+    %>
+  </div>
+  <div class="form-group mr-2">
+    <%= form.label :query, class: "sr-only" %>
+    <%= form.text_field :query, placeholder: "Search jobs", value: fetch_filter_key("job", current_user.id, 'query'), data: { action: "input->form#submit" } %>
+  </div>
+<% end %>

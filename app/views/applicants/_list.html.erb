@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "applicants", class: "flex flex-grow mt-4 space-x-6 overflow-auto", data: { controller: "drag", drag_url_value: "/applicants/:id/change_stage", drag_attribute_value: "applicant[stage]" } do %>
+  <% %w[application interview offer hired].each do |stage| %>
+    <div class="flex flex-col flex-shrink-0 w-72">
+      <div class="flex items-center flex-shrink-0 h-10 px-2">
+        <span class="block text-lg font-semibold"><%= stage.to_s.humanize %></span>
+      </div>
+      <div id="applicants-<%= stage %>" data-drag-target="list" data-new-value="<%= stage.to_s %>" class="h-full">
+        <% @grouped_applicants[stage]&.each do |applicant| %>
+          <%= render "card", applicant: applicant %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
