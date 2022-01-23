@@ -1,0 +1,12 @@
+<nav class="bg-gray-100 shadow">
+  <div class="container mx-auto flex text-gray-700 max-w-screen-2xl">
+    <div class="flex flex-shrink-0 items-center px-6 py-4">
+      <%= link_to "Hotwired ATS", root_path, class: "rounded px-2 py-1 text-gray-700 hover:text-gray-900 hover:bg-gray-200" %>
+    </div>
+    <% if user_signed_in? %>
+      <%= render "nav/authenticated" %>
+    <% else %>
+      <%= render "nav/unauthenticated" %>
+    <% end %>
+  </div>
+</nav>

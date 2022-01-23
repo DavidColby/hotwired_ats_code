@@ -1,0 +1,7 @@
+<div class="flex items-center w-full space-x-8">
+  <%= link_to "Jobs","#", class: "rounded px-2 py-1 text-gray-700 hover:text-gray-900 hover:bg-gray-200" %>
+  <%= link_to "Applicants", "#", class: "rounded px-2 py-1 text-gray-700 hover:text-gray-900 hover:bg-gray-200" %>
+</div>
+<div class="flex items-center justify-end px-6 py-4 flex-shrink-0 space-x-8">
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "rounded px-2 py-1 text-gray-700 hover:text-gray-900 hover:bg-gray-200" %>
+</div>
