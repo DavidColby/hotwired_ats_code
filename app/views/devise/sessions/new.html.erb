@@ -1,0 +1,48 @@
+<div class="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-lg">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      Sign in to Hotwired ATS
+    </h2>
+    <p class="mt-2 text-center text-sm text-gray-600 max-w">
+      Need an account?
+      <%= link_to "Sign up for free", new_user_registration_path, class: "font-medium text-blue-600 hover:text-blue-500" %>
+    </p>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-lg">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }) do |form| %>
+        <div class="form-group">
+          <%= form.label :email %>
+          <div class="mt-1">
+            <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :password %>
+          <div class="mt-1">
+            <%= form.password_field :password, autocomplete: "current-password" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center justify-baseline checkbox-group">
+              <%= form.check_box :remember_me %>
+              <%= form.label :remember_me %>
+            </div>
+
+            <div class="text-sm">
+              <%= link_to "Forgot your password?", new_user_password_path, class: "font-medium text-blue-600 hover:text-blue-500" %>
+            </div>
+          </div>
+        <% end %>
+
+        <div>
+          <%= form.button "Sign in", class: "btn-primary w-full", data: { disable_with: "Signing in" } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

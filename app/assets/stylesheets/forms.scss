@@ -1,0 +1,32 @@
+@layer utilities {
+  .btn {
+    @apply px-8 py-2 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-sm;
+  }
+}
+.btn-primary {
+  @apply btn bg-blue-500 hover:bg-blue-700 text-white focus:ring-blue-500;
+}
+.btn-primary-outline {
+  @apply btn border border-blue-500 text-blue-700 hover:bg-blue-700 hover:text-white focus:ring-blue-700;
+}
+.checkbox-group label {
+  @apply ml-2 block font-medium text-gray-700 cursor-pointer;
+}
+.checkbox-group input {
+  @apply h-4 w-4 rounded bg-white text-blue-500 border-gray-200 rounded-sm text-lg focus:ring-1 focus:ring-blue-300 focus:border-blue-300;
+}
+.form-group label {
+  @apply block font-medium text-gray-700 cursor-pointer;
+}
+.form-group input, .form-group select {
+  @apply appearance-none w-full max-w-prose bg-white text-gray-700 border-gray-200 rounded-sm focus:ring-1 focus:ring-blue-300 focus:border-blue-300;
+}
+.form-group label.is-invalid {
+  @apply text-red-500;
+}
+.form-group input.is-invalid {
+  @apply border-red-500 focus:ring-red-600 focus:border-red-600;
+}
+.form-group input[type=file]::file-selector-button {
+  @apply btn bg-white border border-blue-500 text-blue-700 hover:bg-blue-700 hover:text-white focus:ring-blue-700 outline-none text-sm shadow-none;
+}
