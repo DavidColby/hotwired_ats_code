@@ -3,5 +3,7 @@
   <%= link_to "Applicants", applicants_path, class: "rounded px-2 py-1 text-gray-700 hover:text-gray-900 hover:bg-gray-200" %>
 </div>
 <div class="flex items-center justify-end px-6 py-4 flex-shrink-0 space-x-8">
+  <%= turbo_stream_from current_user, :notifications %>
+  <%= render "nav/notifications", user: current_user %>
   <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "rounded px-2 py-1 text-gray-700 hover:text-gray-900 hover:bg-gray-200" %>
 </div>

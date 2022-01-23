@@ -1,0 +1,29 @@
+<li
+  class="p-4 transition-opacity"
+  id="<%= dom_id(notification) %>"
+  data-controller="notifications"
+  data-public="<%= notification.to_global_id.to_s %>"
+>
+  <div class="flex space-x-4 items-center">
+    <div>
+      <button data-action="click->notifications#read">
+        <%= render_inline_svg "check-circle", class: "h-7 w-7 text-gray-500 hover:text-green-500", title: "Mark as read" %>
+        <span class="sr-only">Mark as read</span>
+      </button>
+    </div>
+    <div>
+      <h4 class="text-sm font-medium">
+        <%= link_to notification.message,
+          notification.url,
+          data: {
+            id: notification.id,
+            action: "click->slideover#open",
+            remote: true 
+          } %>
+      </h4>
+      <p class="text-sm text-gray-500">
+        <%= time_ago_in_words(notification.created_at) %> ago
+      </p>
+    </div>
+  </div>
+</li>
