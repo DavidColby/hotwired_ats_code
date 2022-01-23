@@ -1,0 +1,6 @@
+<p>
+  Hi <%= @user.first_name %>,
+</p>
+<p>
+  You've been invited to join Hotwired ATS by <%= @inviting_user.name %>. You can activate your account here: <%= link_to "Activate Account", accept_invite_url(token: @user.invite_token) %>
+</p>

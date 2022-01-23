@@ -1,0 +1,36 @@
+<%= form_with(model: user, id: 'user-form', html: { class: "space-y-6" }, data: { remote: true }) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :first_name %>
+    <div class="mt-1">
+      <%= form.text_field :first_name %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <div class="mt-1">
+      <%= form.text_field :last_name %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <div class="mt-1">
+      <%= form.text_field :email %>
+    </div>
+  </div>
+
+  <%= form.submit 'Submit', class: 'btn-primary float-right' %>
+<% end %>

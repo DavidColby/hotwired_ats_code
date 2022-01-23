@@ -1,0 +1,11 @@
+<div class="flex items-baseline justify-between mb-6">
+  <h2 class="mt-6 text-3xl font-extrabold text-gray-700">
+    Users
+  </h2>
+  <%= link_to "Add a new user", new_user_path, class: "btn-primary-outline", data: { action: "click->slideover#open", remote: true } %>
+</div>
+<div class="shadow overflow-hidden sm:rounded-md">
+  <div class="divide-y divide-gray-200 flex flex-col" id="users">
+    <%= render @users %>
+  </div>
+</div>

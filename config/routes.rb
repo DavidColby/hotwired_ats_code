@@ -6,8 +6,11 @@ Rails.application.routes.draw do
     get :resume, action: :show, controller: 'resumes'
   end
   
+  resources :invites, only: %i[create update]
   resources :jobs
   resources :notifications, only: %i[index]
+  resources :users
+  get 'invite', to: 'invites#new', as: 'accept_invite'
 
   devise_for :users,
     path: '',
