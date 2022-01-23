@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title).presence || 'Hotwired ATS' %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body data-controller="slideover">
+    <div class="flex flex-col h-screen justify-between px-4 md:px-0">
+      <%= render "careers/nav" %>
+      <main class="mb-auto w-full overflow-auto">
+        <div class="mx-auto max-w-screen-2xl md:px-6 lg:px-8 py-8">
+          <%= yield %>
+        </div>
+      </main>
+      <%= render "shared/footer" %>
+      <div id="flash-container">
+        <% flash.each do |key, value| %>
+          <%= render "shared/flash", level: key, content: value %>
+        <% end %>
+      </div>
+    </div>
+    <%= render "shared/slideover" %>
+  </body>
+</html>

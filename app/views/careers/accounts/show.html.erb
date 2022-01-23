@@ -1,0 +1,9 @@
+<%= content_for :title, "#{@account.name} Careers" %>
+<div class="flex items-baseline justify-between mb-6">
+  <h2 class="mt-6 text-3xl font-extrabold text-gray-700">
+    Open positions
+  </h2>
+</div>
+<div class="shadow overflow-hidden sm:rounded-md">
+  <%= turbo_frame_tag "jobs", class: "divide-y divide-gray-200", src: careers_account_jobs_path(account_id: @account.id), target: "_top" %>
+</div>

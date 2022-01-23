@@ -1,0 +1,2 @@
+module Careers::JobsHelper
+end
