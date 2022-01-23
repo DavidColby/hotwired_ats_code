@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_010201) do
+ActiveRecord::Schema.define(version: 2022_01_23_023455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -60,6 +60,22 @@ ActiveRecord::Schema.define(version: 2022_01_23_010201) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "applicants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.string "stage"
+    t.string "status"
+    t.uuid "job_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_applicants_on_email"
+    t.index ["job_id"], name: "index_applicants_on_job_id"
+    t.index ["stage"], name: "index_applicants_on_stage"
+    t.index ["status"], name: "index_applicants_on_status"
+  end
+
   create_table "jobs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.string "location"
@@ -90,6 +106,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_010201) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "applicants", "jobs"
   add_foreign_key "jobs", "accounts"
   add_foreign_key "users", "accounts"
 end
