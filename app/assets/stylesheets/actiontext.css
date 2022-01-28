@@ -10,3 +10,11 @@ trix-editor.trix-content {
   @apply appearance-none w-full max-w-prose bg-white text-gray-700 border-gray-200 rounded-sm text-lg focus:ring-1 focus:ring-blue-300 focus:border-blue-300;
   min-height: 400px;
 }
+
+.trix-comment-group trix-editor {
+  min-height: 5em;
+  max-height: 10em;
+}
+.trix-comment-group .trix-button-group {
+  display: none;
+}

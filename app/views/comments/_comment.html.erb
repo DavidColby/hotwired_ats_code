@@ -1,0 +1,8 @@
+<div class="py-4 bg-gray-100">
+  <div>
+    <%= comment.comment %>
+  </div>
+  <p class="mt-1 text-sm text-gray-500">
+    <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.name %>
+  </p>
+</div>

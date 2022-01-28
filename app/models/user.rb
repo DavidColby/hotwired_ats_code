@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include ActionText::Attachable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,10 +10,10 @@ class User < ApplicationRecord
   belongs_to :invited_by, required: false, class_name: 'User'
   accepts_nested_attributes_for :account
 
+  has_many :comments, dependent: :destroy
   has_many :emails, dependent: :destroy
   has_many :invited_users, class_name: 'User', foreign_key: 'invited_by_id', dependent: :nullify, inverse_of: :invited_by
   has_many :notifications, dependent: :destroy
-
 
   after_create_commit :generate_alias
 
@@ -26,5 +28,9 @@ class User < ApplicationRecord
 
   def name
     [first_name, last_name].join(' ').presence || '(Not set)'
+  end
+
+  def to_attachable_partial_path
+    'users/mention_attachment'
   end
 end

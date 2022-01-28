@@ -5,6 +5,7 @@ class Applicant < ApplicationRecord
   belongs_to :job
 
   has_one_attached :resume
+  has_many :comments, as: :commentable, dependent: :destroy, counter_cache: :commentable_count
   has_many :emails, dependent: :destroy
 
   enum stage: {
