@@ -15,6 +15,20 @@
         <%= inline_svg_tag 'calendar.svg', class: 'h-4 w-4 inline-block' %>
         <span class="ml-1 leading-none"><%= l(applicant.created_at.to_date, format: :short) %></span>
       </div>
+      <%= link_to(
+        applicant_comments_path(
+          applicant_id: applicant.id
+        ),
+        class: "relative flex items-center ml-4 cursor-pointer text-gray-400 hover:text-gray-700",
+        title: "Comments",
+        data: {
+          action: "click->slideover#open",
+          remote: true
+        }
+      ) do %>
+        <%= inline_svg_tag 'chat-bubbles.svg', class: 'h-4 w-4 inline-block' %>
+        <span class="ml-1 leading-none"><%= applicant.comments.size %></span>
+      <% end %>
     </div>
   </div>
 </div>

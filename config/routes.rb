@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  concern :commentable do
+    resources :comments, only: %i[index create]
+  end
+
   get 'charts/show', as: :chart
-  resources :applicants do
+  resources :applicants, concerns: :commentable do
     patch :change_stage, on: :member
     resources :emails, only: %i[index new create show]
     resources :email_replies, only: %i[new]

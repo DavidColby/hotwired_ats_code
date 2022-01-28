@@ -1,0 +1,18 @@
+<%= form_with(model: comment, url: polymorphic_path([commentable, comment]), id: 'comment-form', data: { remote: true }) do |form| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+        <% comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="trix-comment-group" data-turbo-cache="false">
+    <%= form.rich_text_area :comment, data: { controller: "mentions" } %>
+  </div>
+  <div class="flex justify-end">
+    <%= form.submit 'Add comment', class: 'mt-1 btn-primary text-sm' %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+.tribute-container {
+  @apply rounded-sm border border-gray-100 overflow-hidden shadow;
+  z-index: 60;
+}
+.tribute-container ul { 
+  @apply list-none m-0 p-0
+}
+.tribute-container li {
+  @apply bg-white p-1 max-w-full text-gray-700;
+  min-width: 15em;
+}
+.tribute-container .highlight {
+  @apply bg-blue-500 text-white cursor-pointer;
+}
+.tribute-container .highlight span {
+  @apply font-bold;
+}
