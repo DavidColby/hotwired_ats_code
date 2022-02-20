@@ -1,8 +1,8 @@
 # README
 
-The code in this repository is intended as a companion for the content of the [Hotwired ATS book](https://hotwiringrails.com). This book offers a step-by-step tutorial through building a Rails 7 application of meaningful size and complexity using my preferred set of tools to build modern Rails applications.
+The code in this repository is intended as a companion for the content of the [Hotwired ATS book](https://davidcolby.gumroad.com/l/hotwired-ats). This book offers a step-by-step tutorial to build a Rails 7 application of meaningful size and complexity using my preferred set of modern Ruby on Rails tools.
 
-While you can use this code on its own, without reading the book, you may find the code difficult to fully understand without the context provided by the book.
+While you can use this code on its own without reading the book, you may find the code difficult to fully understand without the context the book provides.
 
 The `main` branch of this repository is intentionally empty. The code changes that make up the application can be found in chapter-specific branches. The final code is, helpfully, in the `final` branch.
 
@@ -15,13 +15,13 @@ We use a combination of Turbo Frames, Turbo Streams, Stimulus, CableReady, and S
 
 ## Who is this book for?
 
-This book is likely to be most valuable for junior and intermediate level Rails developers who want to learn more about Hotwire and modern, reactive Rails applications. More seasoned Rails developers who have not yet had a chance to work with the Hotwire stack, StimulusReflex, and CableReady should find the book valuable as well.
+This book is likely to be most valuable for junior and intermediate Rails developers who want to learn more about the Hotwire stack and modern, reactive Rails applications. More seasoned Rails developers who have not yet had a chance to work with the Hotwire stack, StimulusReflex, and CableReady will find the book valuable as well.
 
 If you already feel very comfortable using Hotwire, CableReady, and StimulusReflex in your applications, this book may not be the right match for you.
 
-Developers who have never used Rails before should not start with this book. The book moves very quickly past "basic" Rails code to spend more time on Hotwire, StimulusReflex, and the surrounding ecosystem of tools that are the core focus of the book.
+Developers who have never used Rails before should not start with this book. The book moves very quickly past basic Rails code to spend more time on Hotwire, StimulusReflex, and the surrounding ecosystem of tools that are the core focus of the book. If you want to get started with Rails, the Odin Project's free full-stack [Ruby on Rails course](https://www.theodinproject.com/paths/full-stack-ruby-on-rails) is an excellent place to begin.
 
-If you have read and enjoyed the step-by-step tutorials I write at [colby.so](https://colby.so), I think you will find using this book as a learning resource for modern Rails tools enjoyable and valuable.
+If you have read and enjoyed the step-by-step tutorials I write at [colby.so](https://colby.so), I think you will find using this book to be enjoyable and valuable.
 
 ## What tools will I learn in this book? Will I have a commercial-grade Rails 7 application at my finger tips after I read the book?
 
@@ -33,7 +33,7 @@ I made an intentional decision to simplify certain features and to exclude some 
 
 This book does not make a concerted effort to optimize code for production or to provide a base for building your own SaaS on top of it. Most prominently, no time is dedicated to implementing useful data validations or user and account-level authorization. We also will not build a billing management system in to the application. Because of the timing of this book's release, we also have to (temporarily) hack around Devise <> Turbo interaction problems in an unpleasant way.
 
-If you choose to buy the book or clone this repo with the intention of building a real product on top of it, please be advised that you will absolutely need to refactor some code and add a significant amount of additional code before having a commercially viable product. Some of the code, as you can see in this repository, might be ugly or less efficient than possible. Some ideas might even be a bit silly — any bad code in the book or in this repo is entirely my fault. Sometimes my odd decisions may have been made in an effort to reduce the mental overhead required to build a new feature, sometimes I might have just missed a better way to build the feature!
+If you choose to buy the book or clone this repo with the intention of building a real product on top of it, please be advised that you will absolutely need to refactor some code and add a significant amount of additional code before having a commercially viable product. Some of the code, as you can see in this repository, might be ugly or less efficient than it should be a scalable production code base. Some ideas might even be a bit silly — any bad code in the book or in this repo is entirely my fault. Sometimes my odd decisions may have been made in an effort to reduce the mental overhead required to build a new feature, sometimes I might have just missed a better way to build the feature!
 
 Also, there are no tests. The book does not cover testing, so the code base does not include tests!
 
