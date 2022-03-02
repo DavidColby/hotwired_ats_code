@@ -8,7 +8,7 @@ export default class extends Controller {
     attribute: String
   }
 
-  connect() {
+  listTargetConnected() {
     this.listTargets.forEach(this.initializeSortable.bind(this))
   }
 
